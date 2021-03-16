@@ -1,0 +1,42 @@
+enum Role {
+    TUTOR,
+    STUDENT,
+    ADMIN
+}
+
+type User {
+    id: ID!
+    name: String!
+    email: String!
+    password: String!
+    role: Role
+}
+
+ type DeleteResponse {
+ ok: Boolean!
+ }
+
+type Query {
+users: [User]
+user(id: ID!) : User
+}
+
+type Mutation {
+   createUser(
+   name: String!,
+   email: String!,
+   password: String!,
+   role: Role): User!
+   deleteUser(id:ID!): DeleteResponse
+  updateUser(
+  id: ID!,
+  name: String,
+  email: String,
+  password: String,
+  role: Role
+  ): User
+}
+
+
+
+
